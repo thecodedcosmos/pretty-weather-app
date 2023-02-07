@@ -22,10 +22,17 @@
   </head>
   <body>
     <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="overview">
       <h1 id="date">
     </h1>
-    <img src="images/sunny.png" alt="Image description" width="100" class="weather-icon float-left" />
-      <h2>
+    </div>
+    <div class="row-1">
+      <div class="col-6">
+    <div class="d-flex weather-temperature">
+    <img src="images/sunny.png" alt="Clear" id="icon" width="100" class="float-left" />
+    <div class="float-left">
         <div id="location">          
           Atlanta, GA
         </div>
@@ -36,7 +43,23 @@
               id="celsius-link">C</a> | <a href="#" 
             id="fahrenheit-link">F</a> </span>
         </div>
-    </h2>
+        </div>
+        </div>
+        <div class="col-6">
+          <ul class="row-1" id="extra">
+            <li>
+              🌧Precipitation: <span id="precipitation"></span>0%
+            </li>
+            <li>
+              💧Humidity: <span id="humidity"></span>73%
+            </li>
+            <li>
+              🌬Wind: <span id="wind"></span>km/h
+            </li>
+          </ul>
+        </div>
+        </div>
+        </div>
     <form id="search-form" class="search-form">
       <input id="city-input" class="form-control mr-sm-2" type="search" placeholder="City/Country" aria-label="Search"autofocus="on"
       autocomplete="off">
@@ -93,6 +116,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     </body>
     <footer>
