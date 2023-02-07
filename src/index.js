@@ -27,8 +27,11 @@ function getTemp(response) {
   let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = response.data.main.humidity;
 
-let windElement = document.querySelector("#wind");
+  let windElement = document.querySelector("#wind");
 windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let dateElement = document.querySelector("#date");
+dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(city) {
