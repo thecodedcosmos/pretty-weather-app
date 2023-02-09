@@ -8,13 +8,13 @@ function formatDate(date) {
     currentMinutes = `0${currentMinutes}`;
   }
   let days = [
+    "Saturday",
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
-    "Friday",
-    "Saturday"
+    "Friday"
   ];
   let currentDay = days[date.getUTCDay()];
   return `${currentDay} ${currentHours}:${currentMinutes}`;
