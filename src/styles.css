@@ -4,6 +4,9 @@ h1 {
   font-weight: bold;
   font-size: 25px;
 }
+h2 {
+  text-transform: capitalize;
+}
 .row-1 {
   font-family: "Shrikhand", cursive;
   font-size: 40px;

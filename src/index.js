@@ -25,6 +25,12 @@ function getTemp(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  let descriptionElement = document.querySelector("#description");
+descriptionElement.innerHTML = response.data.weather[0].description;
+  
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute("src", `./images/${response.data.weather[0].icon}.png`);
+  
   let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = response.data.main.humidity;
 
@@ -33,16 +39,10 @@ windElement.innerHTML = Math.round(response.data.wind.speed);
 
   let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
-
-  let iconElement = document.querySelector("#icon");
-iconElement.setAttribute ("src",`images/stormyday.png`);
-  
-  let descriptionElement = document.querySelector("#description");
-descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
   function searchCity(city) {
-  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiKey = "53a4b2b1392fe8f20220772417c83c7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getTemp);
 }
@@ -53,7 +53,7 @@ function submitButton(event) {
 }
 
 function searchLocation(position) {
-  let apiKey = "caa883a4a60d93878755b08a933f74ea";
+  let apiKey = "53a4b2b1392fe8f20220772417c83c7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getTemp);
 }
