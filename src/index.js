@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date (timestamp);
   let currentHours = date.getHours();
   if (currentHours < 10) {
     currentHours = `0${currentHours}`;
@@ -30,6 +31,9 @@ descriptionElement.innerHTML = response.data.weather[0].description;
   
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `./images/${response.data.weather[0].icon}.png`);
+  
+  let feelsLike = document.querySelector("#feelsLike-value");
+  feelsLike.innerHTML = `${Math.round(response.data.main.feels_like)}`;
   
   let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = response.data.main.humidity;
