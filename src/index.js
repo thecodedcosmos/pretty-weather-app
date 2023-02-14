@@ -43,8 +43,10 @@ windElement.innerHTML = Math.round(response.data.wind.speed);
 
   let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
-}
+ 
+celsiusTemperature  = response.data.main.temp;
 
+}
   function searchCity(city) {
   let apiKey = "53a4b2b1392fe8f20220772417c83c7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -70,14 +72,19 @@ function getLocation(event) {
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9)/5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-
 function convertToCelsius(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+let celsiusTemperature = null;
 
 let dateElement = document.querySelector("#date");
 let date = new Date();
@@ -95,4 +102,4 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
-searchCity("Atlanta,Ga");
+searchCity("Fresno, CA");
