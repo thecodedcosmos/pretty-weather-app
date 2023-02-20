@@ -60,6 +60,9 @@ footer {
 .high {
   color: #9225ff;
 }
+.low {
+  color:#8ec5f9;
+}
 .input-group {
   max-width: 540px;
 }
