@@ -21,6 +21,31 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function(day) {
+forecastHTML = forecastHTML + 
+  `<div class="col-2">
+          <img 
+          src="images/02d.png" 
+          alt="Image description" 
+          width="75" 
+          />
+          <br />
+          <div class="weather-forecast-date">${day}</div>
+          <div class="weather-forecast-temperatures">  
+          <strong class="high">92°</strong><strong class="low"> 64°</strong>
+           </div>
+          </div>
+      `;
+  })
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function getTemp(response) {
   document.querySelector("#location").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -103,3 +128,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("Fresno, CA");
+displayForecast();
