@@ -20,8 +20,6 @@ function formatDate(timestamp) {
   let currentDay = days[date.getDay()];
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
-
-function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -41,10 +39,8 @@ forecastHTML = forecastHTML +
           </div>
       `;
   })
-  
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-}
 
 function getTemp(response) {
   document.querySelector("#location").innerHTML = response.data.name;
@@ -128,4 +124,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("Fresno, CA");
-displayForecast();
