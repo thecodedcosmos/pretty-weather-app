@@ -114,3 +114,14 @@ footer {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+.weather-forecast-date {
+    font-size: larger;
+}
+.weather-forecast-temperature-max {
+  font-weight: bold;
+  color:#9225ff;
+}
+.weather-forecast-temperature-min {
+  font-weight: bold;
+  color:#ffc75a;
+}
