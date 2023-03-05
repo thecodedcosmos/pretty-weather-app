@@ -46,7 +46,8 @@ function displayForecast(response) {
         <img
           src="https://assets.codepen.io/9254068/${forecastDay.weather[0].icon}.png"
           alt=""
-          width="100"
+          width="75"
+          height="75"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
@@ -95,7 +96,6 @@ function getTemp(response) {
     "src",
     `./images/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
   getForecast(response.data.coord);
 }
 
